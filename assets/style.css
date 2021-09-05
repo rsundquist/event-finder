@@ -11,6 +11,10 @@ h1 {
     text-align: center;
 }
 
-.button {
-   font-size: 24px; 
+button {
+   font-size: 20px; 
+}
+
+.textBox {
+    font-size: 20px;
 }
