@@ -1,12 +1,16 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    background-color: rgb(29, 29, 192);
+    font-size: 24px;
+    background-color: steelblue;
 
 }
 
 h1 {
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 36px;
     text-align: center;
+}
+
+.button {
+   font-size: 24px; 
 }
