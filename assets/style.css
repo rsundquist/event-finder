@@ -11,6 +11,13 @@ h1 {
     text-align: center;
 }
 
+.radio-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .radio-toolbar label {
     display: inline-block;
     background-color: #ddd;
@@ -23,4 +30,15 @@ h1 {
 
 .textBox {
     font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center; 
 }
