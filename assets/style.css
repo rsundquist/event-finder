@@ -10,7 +10,12 @@ h1 {
     font-size: 36px;
     text-align: center;
 }
-
+.radio-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 .radio-toolbar label {
     display: inline-block;
     background-color: #ddd;
