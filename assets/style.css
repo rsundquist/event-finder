@@ -30,15 +30,15 @@ h1 {
 
 .textBox {
     font-size: 20px;
-    display: flex;
-    flex-direction: row;
+    text-align: center;
     justify-content: center;
     align-content: center;
 }
 
-button {
+.button {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center; 
 }
+
