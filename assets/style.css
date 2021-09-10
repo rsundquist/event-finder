@@ -1,0 +1,41 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    background-color: rgb(35, 126, 200);
+
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 36px;
+    text-align: center;
+}
+.radio-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    border: 2px solid #444;
+    border-radius: 4px;
+}
+
+.textBox {
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center; 
+}
