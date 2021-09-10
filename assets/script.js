@@ -14,7 +14,7 @@ var radioOther = document.getElementById("searchBox")
 
 seachButton.addEventListener("click", function() {
     
-    var request = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + seachBar.value
+    var request = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + seachBar.value + '&range=10mi'
     
     fetch(request)
   .then(response => response.json())
