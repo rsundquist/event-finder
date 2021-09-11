@@ -23,13 +23,25 @@ button {
     border: none;
     color: white;
     padding: 10px 24px;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
     }
+
+    
+.moneyPicker {
+    display: inline-block;
+    text-align: center;
+    background-color: rgb(157, 228, 51);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
 p {
     display: flex;
@@ -84,17 +96,80 @@ p {
 }
 
 @media screen and (max-width: 480px) {
-    .h1{
-        font-size: 20px;
-    } 
+    .body {
+        justify-content: center;
+    }
     
+    .h1 {
+        font-size: 20px;
+        justify-content: center;
+        margin-right: 5px;
+        margin-left: 5px;
+    } 
+
+    .button {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+
+    .moneyPicker {
+        padding: 5px 12px;
+        font-size: 12px ;
+    }
+    
+    .radio-toolbar label {
+        font-size: 16px;
+        justify-content: center;
+        padding: 5px 10px;
+    }
+
+    .radio-toolbar {
+        justify-content: center;
+        font-size: 16px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .textBox {
+        justify-content: center;
+        font-size: 16px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .title {
+        font-size: 14px; 
+        font-weight: bold;
+        justify-content: center;
+        margin-right: 5px;
+        margin-left: 5px;
+     }
+     
+     .type {
+        font-size: 14px;
+        justify-content: center;
+        margin-right: 5px;
+        margin-left: 5px;
+     }
+     
+     .dateTime {
+        font-size: 14px;
+        justify-content: center;
+        margin-right: 5px;
+        margin-left: 5px;
+     }
+     
+     .location {
+        font-size: 14px;
+        justify-content: center;
+        margin-right: 5px;
+        margin-left: 5px;
+     }
+     
+     .price {
+        font-size: 14px;
+        justify-content: center;
+        margin-right: 5px;
+        margin-left: 5px;
+     }
 }
-
-
-
-/* .button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center; 
-} */
