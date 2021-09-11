@@ -39,11 +39,13 @@ seachButton.addEventListener("click", function() {
         else if (moneyPicker == "AUD") {
             var ratio = data.conversion_rates.AUD
             converter = parseFloat(ratio)}
+
         else {
             converter = 1 
         }
     })
     var priceString = 
+
     fetch(requestSports)
         .then(response => response.json())
         .then(data => {
@@ -53,11 +55,14 @@ seachButton.addEventListener("click", function() {
                 var price = data.events[i].stats.average_price
                 var priceNum = parseFloat(price)
             if (price === null){
+
                     priceString = ""
+
                 }
                 else {priceNum = priceNum*converter 
                         console.log(priceNum)
                         priceString =  priceNum.toFixed(2)
+
                     if (moneyPicker == "USD"){
                                         priceString = "$" + priceString
                                         
@@ -77,6 +82,7 @@ seachButton.addEventListener("click", function() {
                                     }
                 }
            
+
 
                 var dateTime = data.events[i].datetime_local
                 var finalTime = dateTime.replace("T", "   ")
