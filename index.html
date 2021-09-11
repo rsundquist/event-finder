@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="style" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css">
     
     <title>Event Finder</title>
 </head>
 <body>
-    <h1>Currency Calculator</h1>
-
-    <input type="radio" id="Sports" name="fav_language" value="Sports">
-    <label for="Sports">Sports</label><br>
-    <input type="radio" id="Music" name="fav_language" value="Music">
-    <label for="Music">Music</label><br>
-    <input type="radio" id="Other" name="fav_language" value="Other">
-    <label for="Other">Other</label>
-
-    
-<p>
-    <input type="text" class="textBox"/>
-    <button> Search </button>
-</p>
-<script src="script" href="assets/script.js"></script>
+    <h1>Event Finder</h1>
+    <div class="radio-toolbar">
+        <input type="radio" id="Sports" name="fav_language" value="Sports" id = "sports">
+        <label for="Sports">Sports</label><br>
+        <input type="radio" id="Music"  name="fav_language" value="Music" id = "music">
+        <label for="Music">Music</label><br>
+        <input type="radio" id="Other" name="fav_language" value="Other" id = "Other">
+        <label for="Other">Other</label>
+    </div>
+    <p>
+        <input type="text" class="textBox" id="searchBox"/>
+        <button id = "search"> Search </button>
+    </p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
