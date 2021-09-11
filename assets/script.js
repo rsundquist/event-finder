@@ -10,6 +10,7 @@ var dateTime1 = document.getElementById("dateTime1")
 var location1 = document.getElementById("location1")
 var price1 = document.getElementById("price1")
 var results = document.getElementById("results")
+var currencyExchange = "https://v6.exchangerate-api.com/v6/ab0f110ed559d90d33353768/latest/USD"
 console.log(radioSports)
 console.log(radioMusic)
 console.log(radioOther)
@@ -32,16 +33,20 @@ seachButton.addEventListener("click", function() {
             var finalHTML = ""
            
             for (var i = 0; i < data.events.length ; i++){
-                var price = "$" + data.events[i].stats.average_price
-                if (price === "$" + null){
-                    price = ""
-                }
+                var price = data.events[i].stats.average_price
+                if (price === null){
+                        price = ""
+                    }
+                    
+                    else{price = "$" + price}
+                var dateTime = data.events[i].datetime_local
+                var finalTime = dateTime.replace("T", "   ")
                 console.log(data.events[i].stats.average_price)
                 var article = `
                     <article>
                         <p class = "title">${data.events[i].title}</p>
                         <p class = type>${data.events[i].type}</p>
-                        <p class = "dateTime">${data.events[i].datetime_local}</p>
+                        <p class = "dateTime">${finalTime}</p>
                         <p class = "location">${data.events[i].venue.name}</p>
                         <p class = "price">${price}</p>
                     </article>
