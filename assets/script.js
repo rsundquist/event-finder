@@ -1,4 +1,4 @@
-var seachBar = document.getElementById("searchBox")
+var searchBar = document.getElementById("searchBox")
 var seachButton = document.getElementById("search")
 var radioSports = document.getElementById("sports")
 var radioMusic = document.getElementById("music")
@@ -10,6 +10,9 @@ console.log(radioSports)
 console.log(radioMusic)
 console.log(radioOther)
 seachButton.addEventListener("click", function() {
+    if(searchBar.value === "" ){
+        return
+    }
     var moneyPicker = document.getElementById("moneyPicker").value
     console.log(moneyPicker)
     var taxonomies = ""
@@ -19,44 +22,46 @@ seachButton.addEventListener("click", function() {
     else if (radioMusic.checked == true){
         taxonomies = "&taxonomies.name=concert"
     }
-    console.log(taxonomies)
-    console.log(radioMusic.checked)
-    console.log(radioSports.checked)
-    var requestSports = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + seachBar.value + '&range=10mi' + taxonomies
+    var requestSports = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + searchBar.value + '&range=10mi' + taxonomies
     var converter = 
     fetch(currencyExchange)
     .then(response => response.json())
-    .then(data =>  {console.log(data)
+    .then(data =>  {
         if (moneyPicker == "CAD") {
             var ratio = data.conversion_rates.CAD
-            converter = parseFloat(ratio)}
+            converter = parseFloat(ratio)
+            }
+            
         else if (moneyPicker == "EUR") {
             var ratio = data.conversion_rates.EUR
-            converter = parseFloat(ratio)}
+            converter = parseFloat(ratio)
+          }
         else if (moneyPicker == "JPY") {
             var ratio = data.conversion_rates.JPY
-            converter = parseFloat(ratio)}
+            converter = parseFloat(ratio)
+          }
         else if (moneyPicker == "AUD") {
             var ratio = data.conversion_rates.AUD
             converter = parseFloat(ratio)}
         else {
             converter = 1 
         }
+     
     })
-    var priceString = 
+    var priceString = 0
     fetch(requestSports)
         .then(response => response.json())
-        .then(data => {
-            console.log(data)
+        .then(data => {console.log
             var finalHTML = ""
             for (var i = 0; i < data.events.length ; i++){
-                var price = data.events[i].stats.average_price
-                var priceNum = parseFloat(price)
+            var price = data.events[i].stats.average_price
             if (price === null){
-                    priceString = ""
+                    priceString = "No Price Listed"
                 }
-                else {priceNum = priceNum*converter 
-                        console.log(priceNum)
+                else {
+                    
+                    var priceNum = parseFloat(price)
+                    priceNum = priceNum*converter 
                         priceString =  priceNum.toFixed(2)
                     if (moneyPicker == "USD"){
                                         priceString = "$" + priceString
@@ -81,7 +86,7 @@ seachButton.addEventListener("click", function() {
                 var dateTime = data.events[i].datetime_local
                 var finalTime = dateTime.replace("T", "   ")
                 var article = `
-                    <article>
+                    <article class = "resultBox">
                         <p class = "title">${data.events[i].title}</p>
                         <p class = type>${data.events[i].type}</p>
                         <p class = "dateTime">${finalTime}</p>
@@ -89,7 +94,6 @@ seachButton.addEventListener("click", function() {
                         <p class = "price">${priceString}</p>
                     </article>
                 `
-                console.log(article)
                 finalHTML += article
             }
             results.innerHTML = finalHTML;
