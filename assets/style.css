@@ -91,6 +91,8 @@ p {
     .h1 {
         font-size: 20px;
         justify-content: center;
+        margin-right: 5px;
+        margin-left: 5px;
     } 
     
     .radio-toolbar label {
@@ -101,6 +103,15 @@ p {
     .textBox {
         justify-content: center;
         font-size: 16px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    #results {
+        justify-content: center;
+        font-size: 16px;
+        margin-right: 5px;
+        margin-left: 5px;
     }
 
 
