@@ -43,6 +43,7 @@ seachButton.addEventListener("click", function() {
         else if (moneyPicker == "AUD") {
             var ratio = data.conversion_rates.AUD
             converter = parseFloat(ratio)}
+
         else {
             converter = 1 
         }
@@ -63,6 +64,7 @@ seachButton.addEventListener("click", function() {
                     var priceNum = parseFloat(price)
                     priceNum = priceNum*converter 
                         priceString =  priceNum.toFixed(2)
+
                     if (moneyPicker == "USD"){
                                         priceString = "$" + priceString
                                         
@@ -82,6 +84,7 @@ seachButton.addEventListener("click", function() {
                                     }
                 }
            
+
 
                 var dateTime = data.events[i].datetime_local
                 var finalTime = dateTime.replace("T", "   ")
