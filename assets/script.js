@@ -28,16 +28,16 @@ seachButton.addEventListener("click", function() {
     fetch(requestSports)
         .then(response => response.json())
         .then(data => {
-            console.log(data.events)
+            console.log(data)
             var finalHTML = ""
             for (var i = 0; i < data.events.length ; i++){
                 var article = `
                     <article>
-                        <p id = "title1">${data.events[i].title}</p>
-                        <p id = type1></p>
-                        <p id = "dateTime1"></p>
-                        <p id = "location1"></p>
-                        <p id = "price1"></p>
+                        <p class = "title">${data.events[i].title}</p>
+                        <p class = type>${data.events[i].type}</p>
+                        <p class = "dateTime">${data.events[i].datetime_local}</p>
+                        <p class = "location">${data.events[i].venue.name}</p>
+                        <p class = "price">${data.events[i].stats.average_price} $</p>
                         <p></p>
                     </article>
                 `
