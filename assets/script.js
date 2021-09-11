@@ -30,15 +30,20 @@ seachButton.addEventListener("click", function() {
         .then(data => {
             console.log(data)
             var finalHTML = ""
+           
             for (var i = 0; i < data.events.length ; i++){
+                var price = "$" + data.events[i].stats.average_price
+                if (price === "$" + null){
+                    price = ""
+                }
+                console.log(data.events[i].stats.average_price)
                 var article = `
                     <article>
                         <p class = "title">${data.events[i].title}</p>
                         <p class = type>${data.events[i].type}</p>
                         <p class = "dateTime">${data.events[i].datetime_local}</p>
                         <p class = "location">${data.events[i].venue.name}</p>
-                        <p class = "price">${data.events[i].stats.average_price} $</p>
-                        <p></p>
+                        <p class = "price">${price}</p>
                     </article>
                 `
                 console.log(article)
