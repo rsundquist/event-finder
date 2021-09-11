@@ -1,46 +1,30 @@
-  
-var seachBar = document.getElementById("searchBar")
-var seachButton = document.getElementById("searchButton")
-var radioSports = document.getElementById("Sports")
-var radioMusic = document.getElementById("Music")
-var radioOther = document.getElementById("Other")
-var lol = ["events", "meta"]
-
-
-console.log(lol)
-
-
-  
- 
-
+var seachBar = document.getElementById("searchBox")
+var seachButton = document.getElementById("search")
+var radioSports = document.getElementById("sports")
+var radioMusic = document.getElementById("music")
+var radioOther = document.getElementById("other")
+var searchResults = document.getElementById("searchContainer")
+var title1 = document.getElementById("title1")
+var type1 = document.getElementById("type1")
+var dateTime1 = document.getElementById("dateTime1")
+var location1 = document.getElementById("location1")
+var price1 = document.getElementById("price1")
+console.log(radioSports)
+console.log(radioMusic)
+console.log(radioOther)
 seachButton.addEventListener("click", function() {
-    
-    // 
-    
-    
-    if(radioSports.checked == true){
-        var requestSports = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + seachBar.value + '&range=10mi&taxonomies.name=sports'
-        fetch(requestSports)
-        .then(response => response.json())
-        .then(data => console.log(data))
-        var searchResults = document.getElementById("searchContainer")
-        var title1 = document.getElementById("title1")
-        var type1 = document.getElementById("type1")
-        var dateTime1 = document.getElementById("dateTime1")
-        var location1 = document.getElementById("location1")
-        var price1 = document.getElementById("price1")
-        }
+    var taxonomies = ""
+    if (radioSports.checked == true) {
+        taxonomies = '&taxonomies.name=sports'
+    }
     else if (radioMusic.checked == true){
-        var requestMusic = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + seachBar.value + '&range=10mi&taxonomies.name=concert'
-        fetch(requestMusic)
-          .then(response => response.json())
-          .then(data => console.log(data))
-
+        taxonomies = "&taxonomies.name=concert"
     }
-    else  {
-        var requestOther = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + seachBar.value + '&range=10mi'
-        fetch(requestOther)
-          .then(response => response.json())
-          .then(data => console.log(data))
-    }
+    console.log(taxonomies)
+    console.log(radioMusic.checked)
+    console.log(radioSports.checked)
+    var requestSports = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + seachBar.value + '&range=10mi' + taxonomies
+    fetch(requestSports)
+        .then(response => response.json())
+        .then(data => console.log(data.events))
 });

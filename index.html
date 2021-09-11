@@ -9,18 +9,20 @@
     <title>Event Finder</title>
 </head>
 <body>
-    <h1>Currency Calculator</h1>
+    <h1>Event Finder</h1>
 
-    <input type="radio" id="Sports" name="fav_language" value="Sports">
-    <label for="Sports">Sports</label><br>
-    <input type="radio" id="Music" name="fav_language" value="Music">
-    <label for="Music">Music</label><br>
-    <input type="radio" id="Other" name="fav_language" value="Other">
-    <label for="Other">Other</label>
-    <div id = "searchHolder">
-    <input type="text" class="textBox" id = "searchBar" value= "48423"/>
-    <button id = "searchButton"> Search </button>
+    <div class="radio-toolbar">
+        <input type="radio" name="fav_language" value="Sports" id = "sports">
+        <label for="Sports">Sports</label><br>
+        <input type="radio"  name="fav_language" value="Music" id = "music">
+        <label for="Music">Music</label><br>
+        <input type="radio"  name="fav_language" value="Other" id = "other">
+        <label for="Other">Other</label>
     </div>
+    <p>
+        <input type="text" class="textBox" id="searchBox"/>
+        <button id = "search"> Search </button>
+    </p>
         <article>
             <p id = "title1"></p>
             <p id = type1></p>
@@ -29,6 +31,7 @@
             <p id = "price1"></p>
             <p></p>
         </article>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="assets/script.js"></script>
 </body>
 </html>
