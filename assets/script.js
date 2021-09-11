@@ -39,7 +39,11 @@ seachButton.addEventListener("click", function() {
         else if (moneyPicker == "AUD") {
             var ratio = data.conversion_rates.AUD
             converter = parseFloat(ratio)}
+        else {
+            converter = 1 
+        }
     })
+    var priceString = 
     fetch(requestSports)
         .then(response => response.json())
         .then(data => {
@@ -49,30 +53,30 @@ seachButton.addEventListener("click", function() {
                 var price = data.events[i].stats.average_price
                 var priceNum = parseFloat(price)
             if (price === null){
-                    priceNum = ""
+                    priceString = ""
                 }
                 else {priceNum = priceNum*converter 
                         console.log(priceNum)
                         priceString =  priceNum.toFixed(2)
-
+                    if (moneyPicker == "USD"){
+                                        priceString = "$" + priceString
+                                        
+                                    }
+                                    else if (moneyPicker == "CAD"){
+                                        priceString = "$" + priceString
+                                            
+                                    }
+                                    else if (moneyPicker == "EUR"){
+                                        priceString = "€" + priceString
+                                        }
+                                    else if (moneyPicker == "JPY"){ 
+                                        priceString = "¥" + priceString
+                                    }
+                                    else if (moneyPicker == "AUD"){ 
+                                        priceString = "$" + priceString
+                                    }
                 }
-                if (moneyPicker == "USD"){
-                    priceString = "$" + priceString
-                    
-                }
-                else if (moneyPicker == "CAD"){
-                    priceString = "$" + priceString
-                        
-                }
-                else if (moneyPicker == "EUR"){
-                    priceString = "€" + priceString
-                    }
-                else if (moneyPicker == "JPY"){ 
-                    priceString = "¥" + priceString
-                }
-                else if (moneyPicker == "AUD"){ 
-                    priceString = "$" + priceString
-                }
+           
 
                 var dateTime = data.events[i].datetime_local
                 var finalTime = dateTime.replace("T", "   ")
