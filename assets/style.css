@@ -46,6 +46,7 @@ p {
 
 .radio-toolbar label {
     display: inline-block;
+    justify-content: center;
     background-color: #ddd;
     padding: 10px 20px;
     font-family: 'Open Sans', sans-serif;
@@ -55,7 +56,7 @@ p {
 }
 
 .textBox {
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     justify-content: center;
     align-content: center;
