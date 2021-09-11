@@ -10,14 +10,17 @@ h1 {
     font-size: 36px;
     text-align: center;
 }
+
 .radio-toolbar {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
+
 .radio-toolbar label {
     display: inline-block;
+    justify-content: center;
     background-color: #ddd;
     padding: 10px 20px;
     font-family: 'Open Sans', sans-serif;
@@ -27,7 +30,7 @@ h1 {
 }
 
 .textBox {
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     justify-content: center;
     align-content: center;
