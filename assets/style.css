@@ -36,9 +36,9 @@ button {
     background-color: rgb(157, 228, 51);
     border: none;
     color: white;
-    padding: 15px 12px;
+    padding: 5px 8px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
 }
