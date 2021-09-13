@@ -2,6 +2,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 24px;
     background-color: rgb(35, 126, 200);
+    
 
 }
 
@@ -21,7 +22,7 @@ button {
     text-align: center;
     background-color: rgb(157, 228, 51);
     border: none;
-    color: white;
+    color: black;
     padding: 10px 24px;
     text-decoration: none;
     font-size: 16px;
@@ -35,7 +36,7 @@ button {
     text-align: center;
     background-color: rgb(157, 228, 51);
     border: none;
-    color: white;
+    color:black;
     padding: 5px 8px;
     text-decoration: none;
     font-size: 15px;
@@ -77,6 +78,8 @@ p {
 .title {
    font-size: 20px; 
    font-weight: bold;
+   border-radius: 5px;
+   border-color: greenyellow;
 }
 
 .type {
