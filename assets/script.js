@@ -4,6 +4,11 @@ var radioSports = document.getElementById("sports")
 var radioMusic = document.getElementById("music")
 var radioOther = document.getElementById("other")
 var searchResults = document.getElementById("searchContainer")
+var title1 = document.getElementById("title1")
+var type1 = document.getElementById("type1")
+var dateTime1 = document.getElementById("dateTime1")
+var location1 = document.getElementById("location1")
+var price1 = document.getElementById("price1")
 var results = document.getElementById("results")
 var currencyExchange = "https://v6.exchangerate-api.com/v6/ab0f110ed559d90d33353768/latest/USD"
 //checks to see if input is 5 numbers
@@ -74,6 +79,7 @@ seachButton.addEventListener("click", function() {
         .then(response => response.json())
         .then(data => {
             var finalHTML = ""
+           
             for (var i = 0; i < data.events.length ; i++){
             var price = data.events[i].stats.average_price
             if (price === null){
@@ -107,13 +113,14 @@ seachButton.addEventListener("click", function() {
                 results.innerHTML = ''
                 var dateTime = data.events[i].datetime_local
                 var finalTime = dateTime.replace("T", "   ")
+                console.log(data.events[i].stats.average_price)
                 var article = `
                     <article class = "resultBox">
                         <p class = "title">${data.events[i].title}</p>
                         <p class = type>${data.events[i].type}</p>
                         <p class = "dateTime">${finalTime}</p>
                         <p class = "location">${data.events[i].venue.name}</p>
-                        <p class = "price">${priceString}</p>
+                        <p class = "price">${price}</p>
                     </article>
                 `
                 finalHTML += article
