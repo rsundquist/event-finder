@@ -6,49 +6,50 @@ var radioOther = document.getElementById("other")
 var searchResults = document.getElementById("searchContainer")
 var results = document.getElementById("results")
 var currencyExchange = "https://v6.exchangerate-api.com/v6/ab0f110ed559d90d33353768/latest/USD"
-console.log(radioSports)
-console.log(radioMusic)
-console.log(radioOther)
+var converter = 1
+zipCodeRegex = /^\d{5}$/;
 seachButton.addEventListener("click", function() {
-    if(searchBar.value === "" ){
+    if(zipCodeRegex.test(searchBar.value) === false ){
+        results.innerHTML = "<h2>Please enter a valid US zipcode<h2>"
         return
     }
     var moneyPicker = document.getElementById("moneyPicker").value
     console.log(moneyPicker)
-    var taxonomies = ""
-    if (radioSports.checked == true) {
-        taxonomies = '&taxonomies.name=sports'
-    }
-    else if (radioMusic.checked == true){
-        taxonomies = "&taxonomies.name=concert"
-    }
-    var requestSports = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + searchBar.value + '&range=10mi' + taxonomies
-    var converter = 
     fetch(currencyExchange)
     .then(response => response.json())
     .then(data =>  {
         if (moneyPicker == "CAD") {
             var ratio = data.conversion_rates.CAD
             converter = parseFloat(ratio)
-            }
-            
+            console.log(converter)
+        }
+        
         else if (moneyPicker == "EUR") {
             var ratio = data.conversion_rates.EUR
             converter = parseFloat(ratio)
-          }
+        }
         else if (moneyPicker == "JPY") {
             var ratio = data.conversion_rates.JPY
             converter = parseFloat(ratio)
-          }
+        }
         else if (moneyPicker == "AUD") {
             var ratio = data.conversion_rates.AUD
             converter = parseFloat(ratio)}
-
-        else {
-            converter = 1 
+            else {
+                converter = 1 
+                console.log(converter)
+            }
+            console.log(converter)
+        })
+        var taxonomies = ""
+        if (radioSports.checked == true) {
+            taxonomies = '&taxonomies.name=sports'
         }
-     
-    })
+        else if (radioMusic.checked == true){
+            taxonomies = "&taxonomies.name=concert"
+        }
+        var requestSports = 'https://api.seatgeek.com/2/events?client_id=MjMxMzE1Njl8MTYzMDM3MTYzMS44ODg0NzI&geoip=' + searchBar.value + '&range=10mi' + taxonomies
+        
     var priceString = 0
     fetch(requestSports)
         .then(response => response.json())
@@ -56,13 +57,17 @@ seachButton.addEventListener("click", function() {
             var finalHTML = ""
             for (var i = 0; i < data.events.length ; i++){
             var price = data.events[i].stats.average_price
+            console.log(price)
             if (price === null){
                     priceString = "No Price Listed"
                 }
                 else {
                     
                     var priceNum = parseFloat(price)
+                    console.log(priceNum)
+                    console.log(converter)
                     priceNum = priceNum*converter 
+                    console.log(priceNum)
                         priceString =  priceNum.toFixed(2)
 
                     if (moneyPicker == "USD"){
@@ -85,7 +90,7 @@ seachButton.addEventListener("click", function() {
                 }
            
 
-
+                results.innerHTML = ''
                 var dateTime = data.events[i].datetime_local
                 var finalTime = dateTime.replace("T", "   ")
                 var article = `
@@ -100,6 +105,7 @@ seachButton.addEventListener("click", function() {
                 finalHTML += article
             }
             results.innerHTML = finalHTML;
+            console.log(priceString)
         })
         
     
