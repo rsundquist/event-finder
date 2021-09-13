@@ -13,7 +13,6 @@ var results = document.getElementById("results")
 var currencyExchange = "https://v6.exchangerate-api.com/v6/ab0f110ed559d90d33353768/latest/USD"
 //checks to see if input is 5 numbers
 var zipCodeRegex = /^\d{5}$/;
-console.log(localStorage[0])
 searchBar.addEventListener("mouseover", function() {
 
         var values = [],
