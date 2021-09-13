@@ -6,7 +6,6 @@ var radioOther = document.getElementById("other")
 var searchResults = document.getElementById("searchContainer")
 var results = document.getElementById("results")
 var currencyExchange = "https://v6.exchangerate-api.com/v6/ab0f110ed559d90d33353768/latest/USD"
-var converter = 1
 zipCodeRegex = /^\d{5}$/;
 seachButton.addEventListener("click", function() {
     if(zipCodeRegex.test(searchBar.value) === false ){
@@ -15,6 +14,7 @@ seachButton.addEventListener("click", function() {
     }
     var moneyPicker = document.getElementById("moneyPicker").value
     console.log(moneyPicker)
+    var converter = 1
     fetch(currencyExchange)
     .then(response => response.json())
     .then(data =>  {
