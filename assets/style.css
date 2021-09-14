@@ -3,6 +3,9 @@ body {
     font-size: 24px;
     background-color: rgb(35, 126, 200);
 }
+.resultsBox {
+    background: black;
+}
 
 h1 {
     font-family: sans-serif;
