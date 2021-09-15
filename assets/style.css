@@ -2,8 +2,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 24px;
     background-color: rgb(35, 126, 200);
-    
-
 }
 
 h1 {
@@ -16,10 +14,12 @@ h1 {
     margin-bottom: 1px;
     color: greenyellow;
 }
+
 h2 {
     font-size: 24px;
     text-align: center;
 }
+
 button {
     display: inline-block;
     text-align: center;
@@ -31,8 +31,7 @@ button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    }
-
+}
     
 #moneyPicker {
     display: inline-block;
